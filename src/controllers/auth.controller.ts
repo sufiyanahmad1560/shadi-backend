@@ -22,6 +22,20 @@ class AuthController {
         }
     }
 
+    async signin(req: Request, res: Response, next: NextFunction) {
+        try {
+            const result = await userService.authenticateUser(req.body);
+            if (result instanceof CustomError || result instanceof Error) {
+                next(result);
+            } else {
+                res.status(200).send(result);
+                logger.info('API url "' + req.originalUrl + '" handled successfully!');
+            }
+        } catch (error) {
+            next(error);
+        }
+    }
+
 }
 
 export const authController = new AuthController();
