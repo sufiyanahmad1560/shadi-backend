@@ -18,7 +18,7 @@ class AuthMiddleware {
         if (req.body && req.body.email && req.body.name && req.body.mobile && req.body.password) {
             next();
         } else {
-            logger.error('While calling API "' + req.originalUrl + '" missing required field');
+            logger.error('While 100 calling API "' + req.originalUrl + '" missing required field');
             res.status(400).send({ error: 'missing required field' })
         }
     }
