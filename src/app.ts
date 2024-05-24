@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 import * as bodyparser from 'body-parser';
 import cors from 'cors';
 import { connectToDatabase } from "./utils/database";
-import { timeStamp } from "console";
 import authRouter from "./routes/auth.routes";
+
 
 dotenv.config();
 
@@ -13,7 +13,9 @@ const app: Express = express();
 const port = process.env.PORT || 8080;
 
 app.use(bodyparser.json());
-app.use(cors())
+app.use(cors());
+
+
 
 app.use('/api', authRouter);
 
