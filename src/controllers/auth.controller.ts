@@ -7,6 +7,8 @@ import { USER_ROLE } from "../utils/constants";
 
 class AuthController {
 
+    //check comment test in controller 
+
     async signup(req: Request, res: Response, next: NextFunction) {
         const { email, name, mobile, password } = req.body;
         try {
